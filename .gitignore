@@ -2,6 +2,10 @@
 mcp-needs-auth-cache.json
 stats-cache.json
 history.jsonl
+daemon.log
+daemon/
+jobs/
+state/
 backups/
 cache/
 debug/
