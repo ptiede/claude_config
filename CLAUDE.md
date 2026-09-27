@@ -146,6 +146,10 @@ figures on the monitor.
   GitHub is also a social media environment and I do not want you representing
   me without consent.
 
+- Write as few comments as the code allows. Well-named, well-structured code
+  explains itself; add a comment only where it cannot. Keep the ones you do
+  write short.
+
 - Comments, docstrings, and commit messages must stand on their own for a reader
   who has only the repository: state what *is* true about the code now, not its
   history, its motivation, or the plan it came from. This is a frequent failure

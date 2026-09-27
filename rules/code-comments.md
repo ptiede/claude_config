@@ -1,5 +1,15 @@
 # Code comments
 
+**The default is no comment.** Clear code is the goal; a comment is what you
+fall back on when clarity cannot be had from names and structure alone. Before
+writing one, try the alternative — a better name, a smaller function, a named
+intermediate. If the comment would only restate the line below it, delete it.
+
+When a comment does earn its place, keep it to the shortest form that carries
+the fact. One line is the norm; a paragraph needs a reason. Prose that explains
+a design, weighs alternatives, or records a measurement belongs in a docstring,
+a commit message, or a `docs/` page, not in the middle of a function.
+
 A comment explains the code that is there *now*: an invariant it must maintain,
 a non-obvious reason it has to be this way, a constraint a future editor would
 otherwise break. Write every comment so it still reads correctly to someone who
