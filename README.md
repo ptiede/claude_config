@@ -12,11 +12,11 @@ For me, this repo is my `~/.claude` folder with a lot of required material `git-
 
 - **[hooks/](hooks)**: scripts invoked by the harness around tool calls. For example, `no-plan-comments.py` runs after every edit and reminds the agent if planning/history scaffolding has leaked into code comments. Hooks are *registered* in `~/.claude/settings.json`, which is git-ignored here to avoid conflicts with user customizations. The durable, shareable registration is committed instead as [settings.example.json](settings.example.json) — copy its `hooks`/`permissions` blocks into your own `~/.claude/settings.json` (adjusting paths; `$HOME` is expanded by the shell that runs the hook).
 
-- a collection of [skills](https://claude.com/docs/skills/overview) in [commands/](commands)
+- a collection of [skills](https://claude.com/docs/skills/overview) in [skills/](skills)
 
 - a few code fragments in [julia-code/](julia-code) and [subagents](https://code.claude.com/docs/en/sub-agents) (in [agents](agents)) that harvest data used by the main agent
 
-### Skills/commands
+### Skills
 
 #### Tools for doing science
 
@@ -55,6 +55,8 @@ Code review: I have *three* separate reviewing agents, plus a common `/review-im
 - `/review-design`: review the conceptual design of a package: its scope and identity, level of abstraction, and composability. Scales to large packages because it uses a subagent to extract the essentials of the source code.
 - `/review-api`: aligns the package API to the [Julia style guide](https://docs.julialang.org/en/v1/manual/style-guide/). Scales to large packages because it uses a subagent to extract the essentials of the source code.
 - `/review-integration`: detailed source-level review of the entire package, including tests and documentation. Only for packages small enough to be read in their entirety without filling the context window.
+
+The plan-file schema and interview questions these four skills share live in [skills/review-common/](skills/review-common), which is a reference directory rather than a skill.
 
 If I'm modernizing a package, I will typically run *all three* of these agents sequentially, implementing the changes for each before conducting the next review. I typically use the order in which they are described above. This tends to do easy/important cleanup early so that later review steps focus on polishing a package whose main components are well-shaped.
 
